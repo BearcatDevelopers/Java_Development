@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.util.*;
+import java.text.*;
 
 public class Financial_Calculator {
 	
@@ -15,6 +16,16 @@ public class Financial_Calculator {
 	
 	static double[] values; 
 	
+	static int ColStartMonth; 
+	static int ColStartYear;
+	
+	static int ColEndMonth;
+	static int ColEndYear;
+	static int lengthofCollege;
+	
+	
+	static double ColLength = 0; 
+	
 	
 	
 	static double[] getValues(){
@@ -29,25 +40,50 @@ public class Financial_Calculator {
 		System.out.println("What is your interest percentage? Please use an integer: ");
 		interest = in.nextDouble();
 		
-		System.out.println("What is the expected time it will take your to repay the loan? Please use years: ");
+		System.out.println("What is the expected time it will take your to repay the loan? Please use months: ");
 		repay_time = in.nextDouble(); 
 		
-		System.out.println("Are you deferring interest? Please type 'yes' or 'no'" );
-		yes_no = in.nextLine().toLowerCase();
 		
-//		if(yes_no.equals("yes")) {
-//			defer_interest = 1;
-//		} else {
-//			defer_interest = 0;
-//		}
 		
-		double[] values = new double[] {principal, interest, repay_time};
+		values = new double[] {principal, interest, repay_time};
 		
 		return values; 
 		
 	}
 	
+	static String deferInterest(){
+		
+		Scanner pass_in = new Scanner(System.in);
+		
+		System.out.println("Are you deferring interest? Please type 'yes' or 'no'" );
+		yes_no = pass_in.nextLine().toLowerCase();
+		//bulletproof here please
+		
+		System.out.println("When is your anticipated graduation month? ");
+		
+		
+		
+		return yes_no;
+		
+		
+	}
 	
+	static void eduLength(){
+		Scanner date_in = new Scanner(System.in);
+		
+		System.out.println("What is your expected college start month? Please use the number value of the month (1-12): ");
+		ColStartMonth = date_in.nextInt(); 
+		System.out.println("What is your expected college start year? Please use the number value of the month (1-12): ");
+		ColStartYear = date_in.nextInt();
+		System.out.println("What is your expected graduation month? Please use the number value of the month (1-12): ");
+		ColEndMonth = date_in.nextInt();
+		System.out.println("What is your expected graduation year? Please use the number value of the month (1-12): ");
+		ColEndYear = date_in.nextInt();
+		
+		lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
+		
+	
+	}
 	
 	
 	
@@ -58,9 +94,24 @@ public class Financial_Calculator {
 	// Let's do this. 
 	
 	getValues();
-	System.out.print(values[0]);
-	System.out.print(values[1]);
-	System.out.print(values[2]);
+	deferInterest();
+	if (yes_no == "yes") {
+		
+		
+		//do the methods for yes
+		// declare ColLen for college length
+		//write calculation
+		
+	} else {
+		//do the methods for no
+		//declare ColLen for college length
+		//write calculation
+	}
+	
+	System.out.println(yes_no);
+	System.out.println(values[0]);
+	System.out.println(values[1]);
+	System.out.println(values[2]);
 	
 	//Student loan
 	//You'll need a variable to capture the amount of money you have loaned to you
