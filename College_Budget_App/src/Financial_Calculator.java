@@ -25,6 +25,9 @@ public class Financial_Calculator {
 	
 	
 	static double ColLength = 0; 
+        
+        static double monthlyPayment = 0;
+        static double basicInterest = 0;
 	
 	
 	
@@ -97,16 +100,25 @@ public class Financial_Calculator {
 	deferInterest();
 	if (yes_no == "yes") {
 		
+            basicInterest = values[0] * (values[1]/12) * (ColLength);
+            
+            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12)))/(values[2]/12);
 		
 		//do the methods for yes
 		// declare ColLen for college length
 		//write calculation
 		
-	} else {
+	} else if(yes_no == "no") {
+            
+            
+            
 		//do the methods for no
 		//declare ColLen for college length
 		//write calculation
 	}
+        else {
+            
+        }
 	
 	System.out.println(yes_no);
 	System.out.println(values[0]);
