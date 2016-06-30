@@ -3,7 +3,7 @@ import java.text.*;
 
 public class Financial_Calculator {
 	
-	static double intDeferInterest = 0;
+	 static double intDeferInterest = 0;
 	
 	static double principal = 0;
 	
@@ -62,8 +62,6 @@ public class Financial_Calculator {
 		yes_no = pass_in.nextLine().toLowerCase();
 		//bulletproof here please
 		
-		System.out.println("When is your anticipated graduation month? ");
-		
 		
 		
 		return yes_no;
@@ -71,7 +69,7 @@ public class Financial_Calculator {
 		
 	}
 	
-	static void eduLength(){
+	static Integer eduLength(){
 		Scanner date_in = new Scanner(System.in);
 		
 		System.out.println("What is your expected college start month? Please use the number value of the month (1-12): ");
@@ -84,6 +82,8 @@ public class Financial_Calculator {
 		ColEndYear = date_in.nextInt();
 		
 		lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
+                
+                return lengthofCollege;
 		
 	
 	}
@@ -98,11 +98,16 @@ public class Financial_Calculator {
 	
 	getValues();
 	deferInterest();
-	if (yes_no == "yes") {
+        eduLength();
+        System.out.println(yes_no);
+	if (yes_no.contains("yes")) {
 		
-            basicInterest = values[0] * (values[1]/12) * (ColLength);
+            basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
             
             monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12)))/(values[2]/12);
+            
+            System.out.println(monthlyPayment);
+            System.out.println(basicInterest);
 		
 		//do the methods for yes
 		// declare ColLen for college length
@@ -117,87 +122,14 @@ public class Financial_Calculator {
 		//write calculation
 	}
         else {
-            
+            System.out.println("Did not work");
         }
 	
 	System.out.println(yes_no);
 	System.out.println(values[0]);
 	System.out.println(values[1]);
 	System.out.println(values[2]);
+	// write out the formula. Answer will be how much you owe per month if you defer interest AND do not pay it. 
 	
-	//Student loan
-	//You'll need a variable to capture the amount of money you have loaned to you
-	// ... which means you'll need a way to import that number. see above "import java.util.Scanner;"
-	// Here's how to declare a scanner: import it above, then follow the following syntax
-	Scanner in = new Scanner(System.in);
-	
-	// and here is your loan amount. Remember that "in" is the name of our scanner, which we use to import values and shit.
-	// nextDouble() means "the next double that gets typed in is equal to 'loanAmount'
-	double loanAmount = in.nextDouble();
-	
-	// Good work. Now you'll need to input whether or not you're deferring interest after college. 
-	System.out.println("Will you be deferring interest after college? Please type 'Yes' or 'No': ");
-	
-	// *NOTE TO DAN - YOU NEED TO BULLETPROOF YOUR INPUTS*
-	String defInterest = in.next();
-	
-	// change it to lowercase in case (because) your users are idiots. 
-	defInterest = defInterest.toLowerCase();
-	
-	if (defInterest == "yes")
-		System.out.println("You have deferred your interest.");
-		// If yes, we'll need to use a compound interest equation *KEVIN GET THE GODDAMN EQUATION*
-		
-		// This means your interest will compound in college and you'll have a new principle amount.
-		// We'll be calculating monthly repayment costs, which are typically over 10 years (120 payments)
-	
-		// That formula is A = P(1 + (r/n))^t - *KEVIN WILL GOOGLE THIS AND GIVE IT MEANING LATER* 
-		// Declare variables for each: 
-		int A;
-		int P; 
-		int r; 
-		int n; 
-		int t; 
-	}
-		// write out the formula. Answer will be how much you owe per month if you defer interest AND do not pay it. 
-	
-	
-	
-	public String DeferInterest(){
-		String answer = null;
-		
-		int x = 0;
-		while(x > 1){
-			Scanner scanIn = new Scanner(System.in);
-			
-			System.out.println("Are you going to defer interest? 'Yes' or 'no': ");
-			
-			answer = scanIn.next();
-			answer = answer.toLowerCase();
-			
-			if(answer == "yes"){
-				x = 0;
-				System.out.println("Print this shit");
-			} else if(answer == "no") {
-				x = 1;
-				System.out.println("Still printing this shit");
-			} else {
-				x = 2;
-				System.out.println("Wrong! Try again.");
-			}
-			
-		}
-		
-		
-		if(answer == "yes") {
-			intDeferInterest = 1;
-		} else if(answer == "no") {
-			
-			intDeferInterest = 0; 
-		} else { 
-			
-		}
-		
-		return answer;
-	}
+        }
 }
