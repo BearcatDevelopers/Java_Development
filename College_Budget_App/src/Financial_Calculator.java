@@ -1,6 +1,8 @@
 import java.util.*;
 import java.text.*;
 
+//http://docs.oracle.com/javase/tutorial/deployment/webstart/
+
 public class Financial_Calculator {
 	
 	 static double intDeferInterest = 0;
