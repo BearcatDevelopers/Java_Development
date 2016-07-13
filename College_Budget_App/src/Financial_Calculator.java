@@ -42,7 +42,7 @@ public class Financial_Calculator {
 		principal = in.nextDouble();
 		
 		
-		System.out.println("What is your interest percentage? Please use an integer: ");
+		System.out.println("What is your interest percentage? Please use a decimal: ");
 		interest = in.nextDouble();
 		
 		System.out.println("What is the expected time it will take your to repay the loan? Please use months: ");
