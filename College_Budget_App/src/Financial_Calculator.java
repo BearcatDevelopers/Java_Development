@@ -34,7 +34,7 @@ public class Financial_Calculator {
 	
 	
 	static double[] getValues(){
-		// 
+		 
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("What is your principal? ");
@@ -58,16 +58,16 @@ public class Financial_Calculator {
 	
 	static String deferInterest(){
 		do{
-		Scanner pass_in = new Scanner(System.in);
+			Scanner pass_in = new Scanner(System.in);
+			System.out.println("Are you deferring interest? Please type 'yes' or 'no'" );
+			yes_no = pass_in.nextLine().toLowerCase();
 		
-		System.out.println("Are you deferring interest? Please type 'yes' or 'no'" );
-		yes_no = pass_in.nextLine().toLowerCase();
-		//bulletproof here please
+			if(!(yes_no.contains("yes") || yes_no.contains("no"))){
+				System.out.println("That is an incorrect input.");
+		}
 		
+		}while(!(yes_no.contains("yes") || yes_no.contains("no")));
 		
-		
-		
-		}while(yes_no.equals("yes") || yes_no.equals("no"));
 		return yes_no;
 		
 	}
