@@ -76,11 +76,11 @@ public class Financial_Calculator {
 		
 		System.out.println("What is your expected college start month? Please use the number value of the month (1-12): ");
 		ColStartMonth = date_in.nextInt(); 
-		System.out.println("What is your expected college start year? Please use the number value of the month (1-12): ");
+		System.out.println("What is your expected college start year?: ");
 		ColStartYear = date_in.nextInt();
 		System.out.println("What is your expected graduation month? Please use the number value of the month (1-12): ");
 		ColEndMonth = date_in.nextInt();
-		System.out.println("What is your expected graduation year? Please use the number value of the month (1-12): ");
+		System.out.println("What is your expected graduation year?: ");
 		ColEndYear = date_in.nextInt();
 		
 		lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
@@ -100,8 +100,8 @@ public class Financial_Calculator {
 	
 	getValues();
 	deferInterest();
-        eduLength();
-        System.out.println(yes_no);
+    eduLength();
+    System.out.println(yes_no);
 	if (yes_no.contains("yes")) {
 		
             basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
