@@ -57,7 +57,7 @@ public class Financial_Calculator {
 	}
 	
 	static String deferInterest(){
-		
+		do{
 		Scanner pass_in = new Scanner(System.in);
 		
 		System.out.println("Are you deferring interest? Please type 'yes' or 'no'" );
@@ -66,8 +66,9 @@ public class Financial_Calculator {
 		
 		
 		
-		return yes_no;
 		
+		}while(yes_no.equals("yes") || yes_no.equals("no"));
+		return yes_no;
 		
 	}
 	
