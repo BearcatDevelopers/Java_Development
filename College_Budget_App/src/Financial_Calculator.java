@@ -30,6 +30,7 @@ public class Financial_Calculator {
         
         static double monthlyPayment = 0;
         static double basicInterest = 0;
+        static double interestPayment = 0;
 	
 	
 	
@@ -103,10 +104,11 @@ public class Financial_Calculator {
         eduLength();
         System.out.println(yes_no);
 	if (yes_no.contains("yes")) {
-		
-            basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
+            //Calculated simple compunded interest while in college P(1+rt)
+            basicInterest = values[0] * (1 + (values[1]) * (lengthofCollege/12));
             
-            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12)))/(values[2]/12);
+            //Calculates monthly payments for college loans. Adds interest accumulated and multiplies by P(1+r/n)^nt
+            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]/12),(values[2])))/(values[2]);
             
             System.out.println(monthlyPayment);
             System.out.println(basicInterest);
@@ -115,9 +117,13 @@ public class Financial_Calculator {
 		// declare ColLen for college length
 		//write calculation
 		
-	} else if(yes_no == "no") {
+	} else if(yes_no.contains("no")) {
             
+            //Calculates interest payment using P(1+r(1))/12
+            interestPayment = (values[0] * (1 + values[1] * (1)))/12;
             
+            //Calculates monthly payment of college loans without any addition of interest P(1+r/n)^nt
+            monthlyPayment = ((values[0])* java.lang.Math.pow((1+values[1]/12),(values[2])))/(values[2]);
             
 		//do the methods for no
 		//declare ColLen for college length
