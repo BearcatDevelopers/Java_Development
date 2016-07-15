@@ -5,7 +5,7 @@ import java.text.*;
 
 public class Financial_Calculator {
 	
-	 static double intDeferInterest = 0;
+	static double intDeferInterest = 0;
 	
 	static double principal = 0;
 	
@@ -17,7 +17,7 @@ public class Financial_Calculator {
 	static int defer_interest = 0; 
 	
 	static double[] values; 
-	
+	static int[] college;
 	static int ColStartMonth; 
 	static int ColStartYear;
 	
@@ -71,7 +71,7 @@ public class Financial_Calculator {
 		
 	}
 	
-	static Integer eduLength(){
+	static int[] eduLength(){
 		Scanner date_in = new Scanner(System.in);
 		
 		System.out.println("What is your expected college start month? Please use the number value of the month (1-12): ");
@@ -83,9 +83,11 @@ public class Financial_Calculator {
 		System.out.println("What is your expected graduation year? Please use the number value of the month (1-12): ");
 		ColEndYear = date_in.nextInt();
 		
+		college = new int[] {ColStartMonth, ColStartYear, ColEndMonth, ColEndYear}; 
+		
 		lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
-                
-                return lengthofCollege;
+        System.out.print(lengthofCollege);        
+        return college;
 		
 	
 	}
@@ -103,13 +105,13 @@ public class Financial_Calculator {
         eduLength();
         System.out.println(yes_no);
 	if (yes_no.contains("yes")) {
-		
+			lengthofCollege = lengthofCollege + 6;
             basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
-            
-            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12)))/(values[2]/12);
-            
+            System.out.print(basicInterest);
+            monthlyPayment = (basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12));
+            monthlyPayment = monthlyPayment/12;
             System.out.println(monthlyPayment);
-            System.out.println(basicInterest);
+ 
 		
 		//do the methods for yes
 		// declare ColLen for college length
@@ -127,10 +129,11 @@ public class Financial_Calculator {
             System.out.println("Did not work");
         }
 	
-	System.out.println(yes_no);
+		eduLength();
+	/*System.out.println(yes_no);
 	System.out.println(values[0]);
 	System.out.println(values[1]);
-	System.out.println(values[2]);
+	System.out.println(values[2]);*/
 	// write out the formula. Answer will be how much you owe per month if you defer interest AND do not pay it. 
 	
         }
