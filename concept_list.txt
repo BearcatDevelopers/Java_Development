@@ -1,0 +1,15 @@
+*Assume if anything needs syntax to be covered 
+
+Java's libraries / packages
+classes
+public vs. private objects
+data types
+arrays
+methods & return types
+  - main method
+  - calling methods and classes
+  - method structure
+Input/output
+datatype conversion
+
+

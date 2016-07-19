@@ -1,0 +1,137 @@
+import java.util.*;
+import java.text.*;
+
+//http://docs.oracle.com/javase/tutorial/deployment/webstart/
+
+public class Financial_Calculator {
+	
+	static double intDeferInterest = 0;
+	
+	static double principal = 0;
+	
+	static double interest = 0;
+	
+	static double repay_time = 0;
+	
+	static String yes_no = null;
+	static int defer_interest = 0; 
+	
+	static double[] values; 
+	
+	static int ColStartMonth; 
+	static int ColStartYear;
+	
+	static int ColEndMonth;
+	static int ColEndYear;
+	static int lengthofCollege;
+	
+	
+	static double ColLength = 0; 
+        
+        static double monthlyPayment = 0;
+        static double basicInterest = 0;
+	
+	
+	
+	static double[] getValues(){
+		// 
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("What is your principal? ");
+		
+		principal = in.nextDouble();
+		
+		
+		System.out.println("What is your interest percentage? Please use a decimal: ");
+		interest = in.nextDouble();
+		
+		System.out.println("What is the expected time it will take your to repay the loan? Please use months: ");
+		repay_time = in.nextDouble(); 
+		
+		
+		
+		values = new double[] {principal, interest, repay_time};
+		
+		return values; 
+		
+	}
+	
+	static String deferInterest(){
+		
+		Scanner pass_in = new Scanner(System.in);
+		
+		System.out.println("Are you deferring interest? Please type 'yes' or 'no'" );
+		yes_no = pass_in.nextLine().toLowerCase();
+		//bulletproof here please
+		
+		
+		
+		return yes_no;
+		
+		
+	}
+	
+	static Integer eduLength(){
+		Scanner date_in = new Scanner(System.in);
+		
+		System.out.println("What is your expected college start month? Please use the number value of the month (1-12): ");
+		ColStartMonth = date_in.nextInt(); 
+		System.out.println("What is your expected college start year? Please use the number value of the month (1-12): ");
+		ColStartYear = date_in.nextInt();
+		System.out.println("What is your expected graduation month? Please use the number value of the month (1-12): ");
+		ColEndMonth = date_in.nextInt();
+		System.out.println("What is your expected graduation year? Please use the number value of the month (1-12): ");
+		ColEndYear = date_in.nextInt();
+		
+		lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
+                
+                return lengthofCollege;
+		
+	
+	}
+	
+	
+	
+	public static void main(String[] args) {
+	// This is going to be a 2-part calculator: 
+	// 1. Calculate how much fucking money you owe those assholes at Sally Mae
+	// 2. Calculate how to build your retirement big enough that the government will [try to] steal it from you. 
+	// Let's do this. 
+	
+	getValues();
+	deferInterest();
+        eduLength();
+        System.out.println(yes_no);
+	if (yes_no.contains("yes")) {
+		
+            basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
+            
+            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12)))/(values[2]/12);
+            
+            System.out.println(monthlyPayment);
+            System.out.println(basicInterest);
+		
+		//do the methods for yes
+		// declare ColLen for college length
+		//write calculation
+		
+	} else if(yes_no == "no") {
+            
+            
+            
+		//do the methods for no
+		//declare ColLen for college length
+		//write calculation
+	}
+        else {
+            System.out.println("Did not work");
+        }
+	
+	/*System.out.println(yes_no);
+	System.out.println(values[0]);
+	System.out.println(values[1]);
+	System.out.println(values[2]);*/
+	// write out the formula. Answer will be how much you owe per month if you defer interest AND do not pay it. 
+	
+        }
+}
