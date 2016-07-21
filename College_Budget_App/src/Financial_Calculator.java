@@ -73,6 +73,7 @@ public class Financial_Calculator {
 	}
 	
 	static Integer eduLength(){
+		do{
 		Scanner date_in = new Scanner(System.in);
 		
 		System.out.println("What is your expected college start month? Please use the number value of the month (1-12): ");
@@ -83,6 +84,11 @@ public class Financial_Calculator {
 		ColEndMonth = date_in.nextInt();
 		System.out.println("What is your expected graduation year?: ");
 		ColEndYear = date_in.nextInt();
+		
+		if(ColStartMonth<0 || ColStartYear < 0 || ColStartMonth > 12 || ColEndMonth  < 0 || ColEndYear <0|| ColEndMonth > 12){
+			System.out.println("Please make sure you are using the required value");
+		}
+		}while(ColStartMonth<0 || ColStartYear < 0 || ColStartMonth > 12 || ColEndMonth  < 0 || ColEndYear <0|| ColEndMonth > 12);
 		
 		lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
                 
