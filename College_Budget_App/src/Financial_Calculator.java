@@ -143,7 +143,6 @@ public class Financial_Calculator {
             System.out.println("Did not work");
         }
 	
-		eduLength();
 	/*System.out.println(yes_no);
 	System.out.println(values[0]);
 	System.out.println(values[1]);
