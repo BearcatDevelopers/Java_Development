@@ -114,10 +114,10 @@ public class Financial_Calculator {
             monthlyPayment = monthlyPayment/12;
 //=======
             //Calculated simple compunded interest while in college P(1+rt)
-            basicInterest = values[0] * (1 + (values[1]) * (lengthofCollege/12));
+            basicInterest = values[0] * (values[1]) * (lengthofCollege/12);
             
             //Calculates monthly payments for college loans. Adds interest accumulated and multiplies by P(1+r/n)^nt
-            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]/12),(values[2])))/(values[2]);
+            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]/365),(365*(values[2])/12)))/(values[2]);
             
 //>>>>>>> df9406f375a63b5a7a9450ff7cf99f978732b7fb
             System.out.println(monthlyPayment);
@@ -130,14 +130,17 @@ public class Financial_Calculator {
 	} else if(yes_no.contains("no")) {
             
             //Calculates interest payment using P(1+r(1))/12
-            interestPayment = (values[0] * (1 + values[1] * (1)))/12;
+            interestPayment = (values[0] * values[1] * (1))/12;
             
             //Calculates monthly payment of college loans without any addition of interest P(1+r/n)^nt
-            monthlyPayment = ((values[0])* java.lang.Math.pow((1+values[1]/12),(values[2])))/(values[2]);
+            monthlyPayment = ((values[0])* java.lang.Math.pow((1+values[1]/365),(365* (values[2])/12)))/(values[2]);
             
 		//do the methods for no
 		//declare ColLen for college length
 		//write calculation
+                
+            System.out.println(monthlyPayment);
+            System.out.println(interestPayment);
 	}
         else {
             System.out.println("Did not work");
