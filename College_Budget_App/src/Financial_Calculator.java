@@ -140,7 +140,10 @@ public class Financial_Calculator {
             interestPayment = (values[0] * values[1] * (1))/12;
             
             //Calculates monthly payment of college loans without any addition of interest P(1+r/n)^nt
-            monthlyPayment = ((values[0])* java.lang.Math.pow((1+values[1]/365),(365* (values[2])/12)))/(values[2]);
+            
+            monthlyPayment = values[0] * (( values[1]/12)/( 1-java.lang.Math.pow ( 1+ ( values[1]/12 ), -( values[2] ) ) ) );
+            
+            //monthlyPayment = (values[0]* java.lang.Math.pow((1+values[1]/12),(12* (values[2])/12)))/values[2];
             
 		//do the methods for no
 		//declare ColLen for college length
