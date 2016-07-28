@@ -75,26 +75,6 @@ public class Financial_Calculator {
 		
 	}
 	
-<<<<<<< HEAD
-	static int[] eduLength(){
-		Scanner date_in = new Scanner(System.in);
-		
-		System.out.println("What is your expected college start month? Please use the number value of the month (1-12): ");
-		ColStartMonth = date_in.nextInt(); 
-		System.out.println("What is your expected college start year? Please use the full number value of the year (ex: 2016): ");
-		ColStartYear = date_in.nextInt();
-		System.out.println("What is your expected graduation month? Please use the number value of the month (1-12): ");
-		ColEndMonth = date_in.nextInt();
-		System.out.println("What is your expected graduation year? Please use the full number value of the year (ex: 2016): ");
-
-		ColEndYear = date_in.nextInt();
-		
-		college = new int[] {ColStartMonth, ColStartYear, ColEndMonth, ColEndYear}; 
-		
-		lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
-        System.out.print(lengthofCollege);        
-        return college;
-=======
 	static int eduLength(){
 		
 		do{
@@ -117,7 +97,7 @@ public class Financial_Calculator {
 			lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
 	                
 	        return lengthofCollege;
->>>>>>> 5009d175fad3346ccf4eb86757c6944fd1d9246b
+//>>>>>>> 5009d175fad3346ccf4eb86757c6944fd1d9246b
 		
 	
 	}
@@ -137,20 +117,20 @@ public class Financial_Calculator {
 	if (yes_no.contains("yes")) {
 
 			lengthofCollege = lengthofCollege + 6;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //=======
-=======
-            basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
-            System.out.print(basicInterest);
-            monthlyPayment = (basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12));
-            monthlyPayment = monthlyPayment/12;
+//=======
+  //          basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
+    //        System.out.print(basicInterest);
+      //      monthlyPayment = (basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12));
+        //    monthlyPayment = monthlyPayment/12;
 
->>>>>>> 5009d175fad3346ccf4eb86757c6944fd1d9246b
+//>>>>>>> 5009d175fad3346ccf4eb86757c6944fd1d9246b
             //Calculated simple compunded interest while in college P(1+rt)
             basicInterest = values[0] * (values[1]) * (lengthofCollege/12);
             
             //Calculates monthly payments for college loans. Adds interest accumulated and multiplies by P(1+r/n)^nt
-            monthlyPayment = ((basicInterest + values[0])* java.lang.Math.pow((1+values[1]/12),(12*(values[2])/12)))/(values[2]);
+            monthlyPayment = (values[0]+ basicInterest) * (( values[1]/12)/( 1-java.lang.Math.pow ( 1+ ( values[1]/12 ), -( values[2] ) ) ) );
             
             System.out.println(monthlyPayment);
  
@@ -165,14 +145,14 @@ public class Financial_Calculator {
             interestPayment = (values[0] * values[1] * (1))/12;
             
             //Calculates monthly payment of college loans without any addition of interest P(1+r/n)^nt
-<<<<<<< HEAD
+/*<<<<<<< HEAD
             monthlyPayment = ( (values[0])* java.lang.Math.pow( ( 1+(values[1]/365) ),( 365* ( ( values[2] )/12 ) ) ) )/(values[2]);
-=======
+=======*/
             
             monthlyPayment = values[0] * (( values[1]/12)/( 1-java.lang.Math.pow ( 1+ ( values[1]/12 ), -( values[2] ) ) ) );
             
             //monthlyPayment = (values[0]* java.lang.Math.pow((1+values[1]/12),(12* (values[2])/12)))/values[2];
->>>>>>> 5009d175fad3346ccf4eb86757c6944fd1d9246b
+//>>>>>>> 5009d175fad3346ccf4eb86757c6944fd1d9246b
             
 		//do the methods for no
 		//declare ColLen for college length
