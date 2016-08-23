@@ -97,7 +97,7 @@ public class Financial_Calculator {
 			lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
 	                
 	        return lengthofCollege;
-//>>>>>>> 5009d175fad3346ccf4eb86757c6944fd1d9246b
+
 		
 	
 	}
