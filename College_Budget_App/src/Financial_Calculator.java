@@ -97,7 +97,6 @@ public class Financial_Calculator {
 			lengthofCollege = ((ColEndYear - ColStartYear)*12)+ (ColEndMonth-ColStartMonth);
 	                
 	        return lengthofCollege;
-	
 	}
 	
 	
@@ -112,13 +111,19 @@ public class Financial_Calculator {
 
 			lengthofCollege = lengthofCollege + 6;
 
+
+  //          basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
+
     //        basicInterest = values[0] * (values[1]/12) * (lengthofCollege);
+
     //        System.out.print(basicInterest);
     //        monthlyPayment = (basicInterest + values[0])* java.lang.Math.pow((1+values[1]),(values[2]/12));
     //        monthlyPayment = monthlyPayment/12;
 
+            //Calculated simple compunded interest while in college P(1+rt)
 
             //Calculated simple compounded interest while in college P(1+rt)
+
             basicInterest = values[0] * (values[1]) * (lengthofCollege/12);
             
             //Calculates monthly payments for college loans. Adds interest accumulated and multiplies by P(1+r/n)^nt
@@ -133,11 +138,20 @@ public class Financial_Calculator {
             interestPayment = (values[0] * values[1] * (1))/12;
             
             //Calculates monthly payment of college loans without any addition of interest P(1+r/n)^nt
+
+            monthlyPayment = ( (values[0])* java.lang.Math.pow( ( 1+(values[1]/365) ),( 365* ( ( values[2] )/12 ) ) ) )/(values[2]);
+
             
             monthlyPayment = values[0] * (( values[1]/12)/( 1-java.lang.Math.pow ( 1+ ( values[1]/12 ), -( values[2] ) ) ) );
-            
+
             //monthlyPayment = (values[0]* java.lang.Math.pow((1+values[1]/12),(12* (values[2])/12)))/values[2];
-                
+
+
+            
+		//do the methods for no
+		//declare ColLen for college length
+		//write calculation
+
             System.out.println("Your monthly payment is $" +    monthlyPayment);
             System.out.println("Your monthly interest payment is $" + interestPayment);
 	}
